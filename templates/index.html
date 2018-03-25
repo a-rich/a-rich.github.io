@@ -1,0 +1,18 @@
+<ul>
+    {% for page in pages %}
+        {% if page.meta.type %}
+            <li>
+                <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
+            </li>
+        {% endif %}
+    {% else %}
+        <li>No posts.</li>
+    {% endfor %}
+
+    <li><a href="{{ url_for("site", path="templates/about.html") }}">About</a></li>
+    <li><a href="{{ url_for("site", path="templates/all.html") }}">All Posts</a></li>
+    <li><a href="{{ url_for("site", path="templates/data-visualization.html") }}">Data Visualization Posts</a></li>
+    <li><a href="{{ url_for("site", path="templates/in-a-nutshell.html") }}">In-a-Nutshell Posts</a></li>
+    <li><a href="{{ url_for("site", path="templates/machine-learning.html") }}">Machine Learning Posts</a></li>
+    <li><a href="{{ url_for("site", path="templates/python.html") }}">Python Posts</a></li>
+</ul>
