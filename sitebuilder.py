@@ -22,9 +22,22 @@ def index():
 
 @app.route('/<path:path>/')
 def page(path):
+    for k,v in {
+            'about': 'about.html',
+            'all': 'all.html',
+            'data-visualization': 'data-visualization.html',
+            'in-a-nutshell': 'in-a-nutshell.html',
+            'machine-learning': 'machine-learning.html',
+            'python': 'python.html'
+            }.items():
+
+        if k == path.split('/')[-1]:
+            return render_template(v)
+
     page = pages.get_or_404(path).html
     return render_template('content.html', page=page)
 
+"""
 @app.route('/site/<path:path>/')
 def site(path):
     for k,v in {
@@ -38,6 +51,7 @@ def site(path):
 
         if k in path:
             return render_template(v)
+"""
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == 'build':

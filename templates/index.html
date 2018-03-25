@@ -1,14 +1,8 @@
 <ul>
     {% for page in pages %}
-        {% if page.meta.type %}
-            <li>
-                <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
-            </li>
-        {% else %}
-            <li>
-                <a href="{{ url_for("site", path=page.path) }}">{{ page.title }}</a>
-            </li>
-        {% endif %}
+        <li>
+            <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
+        </li>
     {% else %}
         <li>No posts.</li>
     {% endfor %}
