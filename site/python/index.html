@@ -41,45 +41,17 @@
             <!-- Content and sidebar -->
             <div class='row'>
                 <div class='col-10 align-self-start'>
+    <h2>Python</h2>
     <div class="m-3 mb-5">
-        <p>{% extends 'base.html' %}
-{% block content %}
-    <h2>{{ header }}</h2>
-    <div class="m-3 mb-5">
-        {% if header == "Blog Posts" %}
-            <ul>
-                {% for group in pages %}
-                <div class='card px-2 pt-2 my-3'>
-                    <h3>{{ group[0] }}</h3>
-                    <ul>
-                        {% for page in group[1] %}
-                            <li>
-                                <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
-                            </li>
-                        {% else %}
-                            <li>No posts.</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% else %}
-                    <h3>No post groups.</h3>
-                {% endfor %}
-            </ul>
-        {% else %}
+        
             <div class='card px-2 pt-2 my-3'>
                 <ul>
-                    {% for page in pages %}
-                        <li>
-                            <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
-                        </li>
-                    {% else %}
+                    
                         <li>No posts.</li>
-                    {% endfor %}
+                    
                 </ul>
             </div>
-        {% endif %}
-    </div>
-{% endblock %}</p>
+        
     </div>
 </div>
                 <div class='col-2 align-self-start'>Sidebar</div>
