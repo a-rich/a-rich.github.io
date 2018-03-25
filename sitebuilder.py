@@ -1,3 +1,5 @@
+import os
+import shutil
 import sys
 from flask import Flask, url_for, render_template, send_from_directory
 from flask_flatpages import FlatPages
@@ -61,5 +63,18 @@ def page(path):
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
         freezer.freeze()
+        for directory in ['site', 'machine-learning', 'data-visualization',
+                'python', 'in-a-nutshell']:
+            if os.path.exists(directory):
+                shutil.rmtree(directory)
+        if os.path.exists('index.html'):
+            os.remove('index.html')
+        os.remove('build/index.html')
+        shutil.rmtree('build/static')
+        os.rename('build/site/about/index.html', 'index.html')
+        shutil.rmtree('build/site/about')
+        for directory in os.listdir('build'):
+            os.rename('build/'+directory, directory)
+        shutil.rmtree('build')
     else:
         app.run()
