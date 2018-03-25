@@ -77,6 +77,6 @@ if os.path.exists('blog.manifest'):
 else:
     manifest = []
 
-link = '/'.join(outfile.split('.')[0].split('/')[-2:] + ['index.html'])
+link = '/' + '/'.join(outfile.split('.')[0].split('/')[-2:] + ['index.html'])
 manifest.append((title, date, link))
 json.dump(manifest, open('blog.manifest', 'w'))

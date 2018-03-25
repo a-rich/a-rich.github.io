@@ -38,6 +38,7 @@ def page(path):
                                  if p.path.split('/')[0] != 'site']))
         }
 
+
     for topic in ['Data Visualization', 'In A Nutshell', 'Machine Learning',
             'Python']:
         if topic not in groups:
