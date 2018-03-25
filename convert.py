@@ -37,11 +37,20 @@ soup = BeautifulSoup(open(infile, 'r'), 'html.parser')
         for o in soup.find_all('div', {'class': 'output_text'})
         if 'matplotlib' in o.find('pre').get_text()]
 
-"""
-# Add well css class to all inputs
-for i in soup.find_all('div', {'class': 'input_area'}):
-    i['class'] = i.et('class', []) + ['well']
-"""
+# Add card css class, padding/margins, color to all code
+for c in soup.find_all('div', {'class': 'input_area'}):
+    c['class'] = c.get('class', []) + ['card', 'px-2', 'pt-2', 'my-3']
+    c['style'] = c.get('style', []) + ['background-color:#F7F7F9;']
+
+# Add card css class, padding/margins, color to all markdown
+for m in [d for d in soup.find_all('div', {'class': 'inner_cell'})
+        if 'input' not in d.parent['class']]:
+    m['class'] = m.get('class', []) + ['bg-info', 'card', 'px-2', 'pt-2', 'my-3']
+
+# Add card css class, padding/margins, color to all outputs
+for o in soup.find_all('div', {'class': 'output'}):
+    o['class'] = o.get('class', []) + ['card', 'px-2', 'pt-2', 'my-3']
+    #c['style'] = c.get('style', []) + ['background-color:#F7F7F9;']
 
 # Change all "small" headers to the smallest
 for size in ['4', '5']:
@@ -51,6 +60,7 @@ for size in ['4', '5']:
 # Change all "big" headers to smaller headers
 for size in ['1', '2', '3']:
     for h in soup.find_all('h{}'.format(size)):
+        h['class'] = h.get('class', []) + ['font-weight-bold']
         h.name = 'h{}'.format(int(size) + 3)
 
 with open(outfile, 'w') as f:

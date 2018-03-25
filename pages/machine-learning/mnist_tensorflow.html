@@ -1,21 +1,21 @@
-title: Building a MNIST Classifier Using Tensorflow
-published: 2018-03-19
+title: Building a MNIST Classifier with Tensorflow
+published: 2018-03-25
 type: post
 
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="MNIST-Classification-with-Tensorflow">MNIST Classification with Tensorflow</h4>
+<h4 class="font-weight-bold" id="MNIST-Classification-with-Tensorflow">MNIST Classification with Tensorflow</h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Import-modules,-package,-libraries">Import modules, package, libraries</h5>
+<h5 class="font-weight-bold" id="Import-modules,-package,-libraries">Import modules, package, libraries</h5>
 </div>
 </div>
 </div>
@@ -23,7 +23,7 @@ type: post
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -36,9 +36,9 @@ type: post
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="These-are-the-versions-of-the-modules/packages/libraries-used">These are the versions of the modules/packages/libraries used</h5><h6 id="NOTE:-This-is-to-be-run-with-a-Python3-kernel">NOTE: This is to be run with a Python3 kernel</h6>
+<h5 class="font-weight-bold" id="These-are-the-versions-of-the-modules/packages/libraries-used">These are the versions of the modules/packages/libraries used</h5><h6 class="font-weight-bold" id="NOTE:-This-is-to-be-run-with-a-Python3-kernel">NOTE: This is to be run with a Python3 kernel</h6>
 <pre><code>jupyter-notebook --version
 5.4.0
 python3 -m ipykernel --version
@@ -53,9 +53,9 @@ tensorflow==1.6.0</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Read-in-data-and-split-into-train-and-test-sets">Read in data and split into train and test sets</h5>
+<h5 class="font-weight-bold" id="Read-in-data-and-split-into-train-and-test-sets">Read in data and split into train and test sets</h5>
 </div>
 </div>
 </div>
@@ -63,7 +63,7 @@ tensorflow==1.6.0</code></pre>
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read in data from CSV files</span>
 <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ex4_train.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ex4_test.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -78,9 +78,9 @@ tensorflow==1.6.0</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Define-constants-&amp;-functions">Define constants &amp; functions</h5>
+<h5 class="font-weight-bold" id="Define-constants-&amp;-functions">Define constants &amp; functions</h5>
 </div>
 </div>
 </div>
@@ -88,7 +88,7 @@ tensorflow==1.6.0</code></pre>
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">NUM_ITERS</span><span class="o">=</span><span class="mi">150</span>
 <span class="n">NUM_CLASSES</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">HIDDEN_NEURONS_1</span> <span class="o">=</span> <span class="mi">175</span>
@@ -158,9 +158,9 @@ tensorflow==1.6.0</code></pre>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Setup-computation-graph">Setup computation graph</h5>
+<h5 class="font-weight-bold" id="Setup-computation-graph">Setup computation graph</h5>
 </div>
 </div>
 </div>
@@ -168,7 +168,7 @@ tensorflow==1.6.0</code></pre>
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># One-hot encode labels</span>
 <span class="n">one_hot_train</span><span class="p">,</span> <span class="n">one_hot_test</span> <span class="o">=</span> <span class="n">one_hot</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
@@ -194,7 +194,7 @@ tensorflow==1.6.0</code></pre>
 </div>
 </div>
 <div class="output_wrapper">
-<div class="output">
+<div class="output card px-2 pt-2 my-3">
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
@@ -214,9 +214,9 @@ See tf.nn.softmax_cross_entropy_with_logits_v2.
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Train-model">Train model</h5>
+<h5 class="font-weight-bold" id="Train-model">Train model</h5>
 </div>
 </div>
 </div>
@@ -224,7 +224,7 @@ See tf.nn.softmax_cross_entropy_with_logits_v2.
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span> 
@@ -266,7 +266,7 @@ See tf.nn.softmax_cross_entropy_with_logits_v2.
 </div>
 </div>
 <div class="output_wrapper">
-<div class="output">
+<div class="output card px-2 pt-2 my-3">
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
@@ -425,9 +425,9 @@ Training took 4660.523246526718 seconds.
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Plot-test-accuracy-over-dropout's-&quot;keep_prob&quot;-ratio">Plot test accuracy over dropout's "keep_prob" ratio</h5>
+<h5 class="font-weight-bold" id="Plot-test-accuracy-over-dropout's-&quot;keep_prob&quot;-ratio">Plot test accuracy over dropout's "keep_prob" ratio</h5>
 </div>
 </div>
 </div>
@@ -435,7 +435,7 @@ Training took 4660.523246526718 seconds.
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Test Accuracy over Dropout Keep Probability'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Dropout Keep Probability'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Test Accuracy'</span><span class="p">)</span>
@@ -449,7 +449,7 @@ Training took 4660.523246526718 seconds.
 </div>
 </div>
 <div class="output_wrapper">
-<div class="output">
+<div class="output card px-2 pt-2 my-3">
 <div class="output_area">
 
 <div class="output_text output_subarea output_execute_result">
