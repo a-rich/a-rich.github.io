@@ -1,6 +1,8 @@
 import os
-import shutil
 import sys
+import json
+import shutil
+from dateutil import parser
 from flask import Flask, url_for, render_template, send_from_directory
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
@@ -20,6 +22,13 @@ def index():
 
 @app.route('/<path:path>/')
 def page(path):
+
+    if os.path.exists('blog.manifest'):
+        manifest = json.load(open('blog.manifest', 'r'))
+    else:
+        manifest = []
+
+    posts = sorted(manifest, key=lambda x: parser.parse(x[1]), reverse=True)[:10]
 
     groups = {' '.join([s.capitalize() for s in group.split('-')]):
         sorted([p for p in pages if p.path.split('/')[0] == group],
@@ -54,10 +63,10 @@ def page(path):
             }.items():
 
         if k == path.split('/')[-1]:
-            return render_template(v[0], pages=v[1], header=v[2])
+            return render_template(v[0], pages=v[1], header=v[2], posts=posts)
 
     page = pages.get_or_404(path).html
-    return render_template('content.html', page=page)
+    return render_template('content.html', page=page, posts=posts)
 
 
 if __name__ == "__main__":

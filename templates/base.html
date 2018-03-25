@@ -40,8 +40,19 @@
         <div class='container'>
             <!-- Content and sidebar -->
             <div class='row'>
-                <div class='col-10 align-self-start'>{% block content %}{% endblock %}</div>
-                <div class='col-2 align-self-start'>{% block sidebar %}Sidebar{% endblock %}</div>
+                <div class='col-9 align-self-start my-3 py-3'>{% block content %}{% endblock %}</div>
+                <div class='col-3 align-self-start my-3 py-2 px-0 card'>
+                    <h5 class='text-center'>Recent Posts</h5>
+                    <ul class="list-item">
+                        {% for post in posts %}
+                            <li class="list-item small">
+                                <a href="{{ post[2] }}">{{ post[1] }} <br> {{ post[0] }}</a>
+                            </li>
+                        {% else %}
+                            <li class="list-item">No posts.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
 
             <!-- Footer -->

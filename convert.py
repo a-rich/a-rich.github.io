@@ -1,4 +1,6 @@
+import os
 import sys
+import json
 import subprocess
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -9,6 +11,7 @@ if len(sys.argv) <= 1:
 
 infile = sys.argv[1]
 title = sys.argv[2]
+date = str(datetime.now().date())
 
 if infile.split('.')[-1] == 'ipynb':
     subprocess.call(['jupyter-nbconvert', infile, '--to', 'html', '--template',
@@ -64,7 +67,16 @@ for size in ['1', '2', '3']:
         h.name = 'h{}'.format(int(size) + 3)
 
 with open(outfile, 'w') as f:
-    meta = 'title: {}\npublished: {}\ntype: {}\n\n'.format(
-            title, datetime.now().date(), 'post')
+    meta = 'title: {}\npublished: {}\n\n'.format(
+            title, date)
     f.write(meta)
     f.write(str(soup))
+
+if os.path.exists('blog.manifest'):
+    manifest = json.load(open('blog.manifest', 'r'))
+else:
+    manifest = []
+
+link = '/'.join(outfile.split('.')[0].split('/')[-2:] + ['index.html'])
+manifest.append((title, date, link))
+json.dump(manifest, open('blog.manifest', 'w'))
