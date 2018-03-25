@@ -46,7 +46,7 @@ def page(path):
     for k,v in {
             'about': ['about.html', [], ''],
             'all': ['blog_posts.html',
-                [(k, [p for p in v]) for k,v in groups.items()],
+                [(k, [p for p in groups[k]) for k in sorted(groups.keys())],
                 'Blog Posts'],
             'data-visualization': ['blog_posts.html',
                 groups['Data Visualization'],
