@@ -6,53 +6,56 @@
 
         <title>Alex Richards: Data science, Python, and more</title>
 
-        <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     </head>
     <body>
-        <div class='container'>
-
-            <!-- Navbar -->
-            <div class='row'>
-                <div class='col-10'>
-                    <h2>Alex Richards: Data science, Python, and more</h2>
+        <nav class="navbar navbar-expand-sm bg-inverse text-white">
+            <div class="container-fluid list-inline nav-justified">
+                <div class="navbar-header list-inline-item">
+                    <h3 class="mr-5 pr-5">Alex Richards: Data science, Python, and more</h3>
                 </div>
-                <div class='col-2'>
-                    <a class="btn btn-sm btn-outline-secondary" href="/index.html">About</a>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Topics
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="/site/all/index.html">All</a>
-                        <a class="dropdown-item" href="/site/data-visualization/index.html">Data Visualization</a>
-                        <a class="dropdown-item" href="/site/in-a-nutshell/index.html">In-a-Nutshell</a>
-                        <a class="dropdown-item" href="/site/machine-learning/index.html">Machine Learning</a>
-                        <a class="dropdown-item" href="/site/python/index.html">Python</a>
-                      </div>
-                    </div>
-                </div>
+                <ul class="list-inline-item">
+                    <li class="list-inline-item">
+                        <button class="btn btn-secondary" type="button">
+                        <a class="text-muted" href="/index.html">About</a></button>
+                    </li>
+                    <li class="list-inline-item">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary
+                                dropdown-toggle text-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Topics</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/site/all/index.html">All</a>
+                                <a class="dropdown-item" href="/site/data-visualization/index.html">Data Visualization</a>
+                                <a class="dropdown-item" href="/site/in-a-nutshell/index.html">In-a-Nutshell</a>
+                                <a class="dropdown-item" href="/site/machine-learning/index.html">Machine Learning</a>
+                                <a class="dropdown-item" href="/site/python/index.html">Python</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
+        </nav>
 
+        <div class='container'>
             <!-- Content and sidebar -->
             <div class='row'>
                 <div class='col-10 align-self-start'>
-    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+    <div class="m-3 mb-5">
+        <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="MNIST-Classification-with-Tensorflow">MNIST Classification with Tensorflow</h4>
+<h4 class="font-weight-bold" id="MNIST-Classification-with-Tensorflow">MNIST Classification with Tensorflow</h4>
 </div>
 </div>
 </div>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Import-modules,-package,-libraries">Import modules, package, libraries</h5>
+<h5 class="font-weight-bold" id="Import-modules,-package,-libraries">Import modules, package, libraries</h5>
 </div>
 </div>
 </div>
@@ -61,7 +64,7 @@
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -75,9 +78,9 @@
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="These-are-the-versions-of-the-modules/packages/libraries-used">These are the versions of the modules/packages/libraries used</h5><h6 id="NOTE:-This-is-to-be-run-with-a-Python3-kernel">NOTE: This is to be run with a Python3 kernel</h6>
+<h5 class="font-weight-bold" id="These-are-the-versions-of-the-modules/packages/libraries-used">These are the versions of the modules/packages/libraries used</h5><h6 class="font-weight-bold" id="NOTE:-This-is-to-be-run-with-a-Python3-kernel">NOTE: This is to be run with a Python3 kernel</h6>
 <pre><code>jupyter-notebook --version
 5.4.0
 python3 -m ipykernel --version
@@ -93,9 +96,9 @@ tensorflow==1.6.0</code></pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Read-in-data-and-split-into-train-and-test-sets">Read in data and split into train and test sets</h5>
+<h5 class="font-weight-bold" id="Read-in-data-and-split-into-train-and-test-sets">Read in data and split into train and test sets</h5>
 </div>
 </div>
 </div>
@@ -104,7 +107,7 @@ tensorflow==1.6.0</code></pre>
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read in data from CSV files</span>
 <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ex4_train.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'ex4_test.csv'</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -120,9 +123,9 @@ tensorflow==1.6.0</code></pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Define-constants-&amp;-functions">Define constants &amp; functions</h5>
+<h5 class="font-weight-bold" id="Define-constants-&amp;-functions">Define constants &amp; functions</h5>
 </div>
 </div>
 </div>
@@ -131,7 +134,7 @@ tensorflow==1.6.0</code></pre>
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">NUM_ITERS</span><span class="o">=</span><span class="mi">150</span>
 <span class="n">NUM_CLASSES</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">HIDDEN_NEURONS_1</span> <span class="o">=</span> <span class="mi">175</span>
@@ -202,9 +205,9 @@ tensorflow==1.6.0</code></pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Setup-computation-graph">Setup computation graph</h5>
+<h5 class="font-weight-bold" id="Setup-computation-graph">Setup computation graph</h5>
 </div>
 </div>
 </div>
@@ -213,7 +216,7 @@ tensorflow==1.6.0</code></pre>
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># One-hot encode labels</span>
 <span class="n">one_hot_train</span><span class="p">,</span> <span class="n">one_hot_test</span> <span class="o">=</span> <span class="n">one_hot</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
@@ -239,7 +242,7 @@ tensorflow==1.6.0</code></pre>
 </div>
 </div>
 <div class="output_wrapper">
-<div class="output">
+<div class="output card px-2 pt-2 my-3">
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
@@ -260,9 +263,9 @@ See tf.nn.softmax_cross_entropy_with_logits_v2.
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Train-model">Train model</h5>
+<h5 class="font-weight-bold" id="Train-model">Train model</h5>
 </div>
 </div>
 </div>
@@ -271,7 +274,7 @@ See tf.nn.softmax_cross_entropy_with_logits_v2.
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span> 
@@ -313,7 +316,7 @@ See tf.nn.softmax_cross_entropy_with_logits_v2.
 </div>
 </div>
 <div class="output_wrapper">
-<div class="output">
+<div class="output card px-2 pt-2 my-3">
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
@@ -473,9 +476,9 @@ Training took 4660.523246526718 seconds.
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
+<div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Plot-test-accuracy-over-dropout's-&quot;keep_prob&quot;-ratio">Plot test accuracy over dropout's "keep_prob" ratio</h5>
+<h5 class="font-weight-bold" id="Plot-test-accuracy-over-dropout's-&quot;keep_prob&quot;-ratio">Plot test accuracy over dropout's "keep_prob" ratio</h5>
 </div>
 </div>
 </div>
@@ -484,7 +487,7 @@ Training took 4660.523246526718 seconds.
 <div class="input">
 
 <div class="inner_cell">
-<div class="input_area">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Test Accuracy over Dropout Keep Probability'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Dropout Keep Probability'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Test Accuracy'</span><span class="p">)</span>
@@ -498,7 +501,7 @@ Training took 4660.523246526718 seconds.
 </div>
 </div>
 <div class="output_wrapper">
-<div class="output">
+<div class="output card px-2 pt-2 my-3">
 <div class="output_area">
 
 <div class="output_text output_subarea output_execute_result">
@@ -515,27 +518,21 @@ Training took 4660.523246526718 seconds.
 </div>
 </div>
 </div>
+    </div>
 </div>
                 <div class='col-2 align-self-start'>Sidebar</div>
             </div>
 
             <!-- Footer -->
-            <div class='row justify-content-center'>
-                <div class='col-1'>Footer</div>
+            <div class="footer fixed-bottom">
+                <div class="container text-center">
+                    <span class="text-muted">alex.richards006@gmail.com</span>
+                </div>
             </div>
-
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-                crossorigin="anonymous"></script>
-        <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"></script>
-        <script
-                src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     </body>
 </html>
