@@ -73,8 +73,7 @@ def page(path):
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
         freezer.freeze()
-        for directory in ['site', 'machine-learning', 'data-visualization',
-                'python', 'in-a-nutshell']:
+        for directory in os.listdir('pages'):
             if os.path.exists(directory):
                 shutil.rmtree(directory)
         if os.path.exists('index.html'):
