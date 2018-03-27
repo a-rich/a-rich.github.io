@@ -71,9 +71,11 @@ if os.path.exists('blog.manifest'):
 else:
     manifest = []
 
-link = '/' + '/'.join(outfile.split('.')[0].split('/')[-2:] + ['index.html'])
+path = '/' + '/'.join(outfile.split('.')[0].split('/')[-2:] + ['index.html'])
 for i, upload in enumerate(list(manifest)):
     if upload[0] == title:
         del manifest[i]
-manifest.append((title, date, link))
+manifest.append((title, date, path))
 json.dump(manifest, open('blog.manifest', 'w'))
+
+subprocess.call(['python3', 'sitebuilder.py', 'build'])

@@ -3,7 +3,7 @@ import sys
 import json
 import shutil
 from dateutil import parser
-from flask import Flask, url_for, render_template, send_from_directory
+from flask import Flask, url_for, render_template
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
 
