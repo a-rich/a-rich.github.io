@@ -28,7 +28,7 @@ def page(path):
     else:
         manifest = []
 
-    posts = sorted(manifest, key=lambda x: parser.parse(x[1]), reverse=True)[:10]
+    recent_posts = sorted(manifest, key=lambda x: parser.parse(x[1]), reverse=True)[:10]
 
     groups = {' '.join([s.capitalize() for s in group.split('-')]):
         sorted([p for p in pages if p.path.split('/')[0] == group],
@@ -47,27 +47,22 @@ def page(path):
     for k,v in {
             'about': ['about.html', [], ''],
             'all': ['blog_posts.html',
-                [(k, [p for p in groups[k]]) for k in sorted(groups.keys())],
-                'Blog Posts'],
-            'data-visualization': ['blog_posts.html',
-                groups['Data Visualization'],
-                'Data Visualization'],
-            'in-a-nutshell': ['blog_posts.html',
-                groups['In A Nutshell'],
-                'In A Nutshell'],
-            'machine-learning': ['blog_posts.html',
-                groups['Machine Learning'],
-                'Machine Learning'],
-            'python': ['blog_posts.html',
-                groups['Python'],
-                'Python'],
+                    [(k, [p for p in groups[k]]) for k in sorted(groups.keys())],
+                    'Blog Posts'],
+            'data-visualization': ['blog_posts.html', groups['Data Visualization'],
+                    'Data Visualization'],
+            'in-a-nutshell': ['blog_posts.html', groups['In A Nutshell'],
+                    'In A Nutshell'],
+            'machine-learning': ['blog_posts.html', groups['Machine Learning'],
+                    'Machine Learning'],
+            'python': ['blog_posts.html', groups['Python'], 'Python'],
             }.items():
 
         if k == path.split('/')[-1]:
-            return render_template(v[0], pages=v[1], header=v[2], posts=posts)
+            return render_template(v[0], pages=v[1], header=v[2], posts=recent_posts)
 
     page = pages.get_or_404(path).html
-    return render_template('content.html', page=page, posts=posts)
+    return render_template('content.html', page=page, posts=recent_posts)
 
 
 if __name__ == "__main__":

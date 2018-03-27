@@ -6,22 +6,18 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 if len(sys.argv) <= 1:
-    print("ERROR: Must supply at least two command-line arguments...\n\tUsage: python3 converter.py <path/to/ipynb/or/html> <post-title> [<path/to/save/html>]")
+    print("ERROR: Must supply at three command-line arguments...\n\tUsage: python3 converter.py <path/to/ipynb/or/html> <post-title> <path/to/save/html>")
     sys.exit()
 
 infile = sys.argv[1]
 title = sys.argv[2]
+outfile = sys.argv[3]
 date = str(datetime.now().date())
 
 if infile.split('.')[-1] == 'ipynb':
     subprocess.call(['jupyter-nbconvert', infile, '--to', 'html', '--template',
         'basic'])
     infile = '.'.join(infile.split('.')[:-1]) + '.html'
-
-try:
-    outfile = sys.argv[3]
-except:
-    outfile = infile
 
 soup = BeautifulSoup(open(infile, 'r'), 'html.parser')
 
@@ -53,7 +49,6 @@ for m in [d for d in soup.find_all('div', {'class': 'inner_cell'})
 # Add card css class, padding/margins, color to all outputs
 for o in soup.find_all('div', {'class': 'output'}):
     o['class'] = o.get('class', []) + ['card', 'px-2', 'pt-2', 'my-3']
-    #c['style'] = c.get('style', []) + ['background-color:#F7F7F9;']
 
 # Change all "small" headers to the smallest
 for size in ['4', '5']:
@@ -67,8 +62,7 @@ for size in ['1', '2', '3']:
         h.name = 'h{}'.format(int(size) + 3)
 
 with open(outfile, 'w') as f:
-    meta = 'title: {}\npublished: {}\n\n'.format(
-            title, date)
+    meta = 'title: {}\npublished: {}\n\n'.format(title, date)
     f.write(meta)
     f.write(str(soup))
 

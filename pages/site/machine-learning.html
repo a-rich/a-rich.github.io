@@ -1,4 +1,4 @@
-title: Machine Learning Posts
+title: Machine Learning
 
 {% extends 'base.html' %}
 {% block content %}
@@ -12,7 +12,7 @@ title: Machine Learning Posts
                     <ul>
                         {% for page in group[1] %}
                             <li>
-                                <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
+                                <a href="{{ url_for("page", path=page.path) }}">{{ page.published }} - {{ page.title }}</a>
                             </li>
                         {% else %}
                             <li>No posts.</li>
@@ -28,7 +28,7 @@ title: Machine Learning Posts
                 <ul>
                     {% for page in pages %}
                         <li>
-                            <a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
+                            <a href="{{ url_for("page", path=page.path) }}">{{ page.published }} - {{ page.title }}</a>
                         </li>
                     {% else %}
                         <li>No posts.</li>
