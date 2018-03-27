@@ -246,19 +246,22 @@
 </div>
 </div>
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+<div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pages</span> <span class="o">%</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{{ url_for("</span><span class="n">page</span><span class="s2">", path=page.path) }}"</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">page</span><span class="o">.</span><span class="n">title</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+        <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">No</span> <span class="n">posts</span><span class="o">.&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+</pre></div>
 </div>
-<div class="inner_cell bg-info card px-2 pt-2 my-3">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-    {% for page in pages %}
-        <li>
-<a href="{{ url_for(" page",="" path="page.path)" }}"="">{{ page.title }}</a>
-</li>
-    {% else %}
-        <li>No posts.</li>
-    {% endfor %}
-</ul>
 </div>
 </div>
 </div>
