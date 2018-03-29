@@ -78,4 +78,4 @@ for i, upload in enumerate(list(manifest)):
 manifest.append((title, date, path))
 json.dump(manifest, open('blog.manifest', 'w'))
 
-subprocess.call(['python3', 'sitebuilder.py', 'build'])
+#subprocess.call(['python3', 'sitebuilder.py', 'build'])
