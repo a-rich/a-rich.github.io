@@ -16,7 +16,7 @@ date = str(datetime.now().date())
 
 if infile.split('.')[-1] == 'ipynb':
     subprocess.call(['jupyter-nbconvert', infile, '--to', 'html', '--template',
-        'basic'])
+        'full'])
     infile = '.'.join(infile.split('.')[:-1]) + '.html'
 
 soup = BeautifulSoup(open(infile, 'r'), 'html.parser')
