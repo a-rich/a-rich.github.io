@@ -16,7 +16,7 @@ date = str(datetime.now().date())
 
 if infile.split('.')[-1] == 'ipynb':
     subprocess.call(['jupyter-nbconvert', infile, '--to', 'html', '--template',
-        'full'])
+        'basic'])
     infile = '.'.join(infile.split('.')[:-1]) + '.html'
 
 soup = BeautifulSoup(open(infile, 'r'), 'html.parser')
@@ -50,7 +50,6 @@ for m in [d for d in soup.find_all('div', {'class': 'inner_cell'})
 for o in soup.find_all('div', {'class': 'output'}):
     o['class'] = o.get('class', []) + ['card', 'px-2', 'pt-2', 'my-3']
 
-"""
 # Change all "small" headers to the smallest
 for size in ['4', '5']:
     for h in soup.find_all('h{}'.format(size)):
@@ -61,7 +60,6 @@ for size in ['1', '2', '3']:
     for h in soup.find_all('h{}'.format(size)):
         h['class'] = h.get('class', []) + ['font-weight-bold']
         h.name = 'h{}'.format(int(size) + 3)
-"""
 
 with open(outfile, 'w') as f:
     meta = 'title: {}\npublished: {}\n\n'.format(title, date)
