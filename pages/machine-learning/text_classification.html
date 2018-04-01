@@ -11773,7 +11773,7 @@ div#notebook {
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 class="font-weight-bold" id="Collecting-and-Classifying-Legislative-Bills">Collecting and Classifying Legislative Bills</h4><p>Today's post pertains to a passion project of which I am part way through completing. The gist of the project is to create a social networking application which allows peers to delegate proxy votes on specific bills or all bills related to a specific policy area. This is more or less an implementation of a derivative of direct democracy called delegative, or liquid, democracy that attempts to mitigate voter apathy and ignorance by encouraging votes to propagate to individuals with knowledge about the given issue.</p>
+<h1 id="Collecting-and-Classifying-Legislative-Bills">Collecting and Classifying Legislative Bills</h1><p>Today's post pertains to a passion project of which I am part way through completing. The gist of the project is to create a social networking application which allows peers to delegate proxy votes on specific bills or all bills related to a specific policy area. This is more or less an implementation of a derivative of direct democracy called delegative, or liquid, democracy that attempts to mitigate voter apathy and ignorance by encouraging votes to propagate to individuals with knowledge about the given issue.</p>
 <p>This is not a new concept at all. In fact, there are several instances of direct democracy techniques being employed. For example, <a href="https://en.wikipedia.org/wiki/Demoex">Demoex</a> is an experimental political party from Stockholm, Sweden that allows citizens to vote on local policy issues; Demoex party representitives vote in accordance with the majority decision reached through the application. This party was absorbed by a minor national political party, <a href="https://en.wikipedia.org/wiki/Direktdemokraterna">Direktdemokraterna</a>, in 2014. Switzerland has long since been using directly democratic methods for civic engagement. The <a href="https://en.wikipedia.org/wiki/Pirate_Party">Pirate Party</a> is another example of an existing institution which idealizes directy democracy.</p>
 <p>There are at least a couple of problems with porting these ideologies to the United States. First, the United States, is a very large nation with many pockets of distinctly different cultures. Producing an application which fairly addresses the concerns of everyone is a challenge of scalability and flexibility. Secondly, the disengagement of citizenry will undoubtedly lead to many uncast votes causing a very skewed representation regarding policy positions. To address the concerns of scalability and flexibility, the application I'm working on features an extensible web scraping module that specifies an API that open source communities must adhere to when developing legislation collection routines for their locality. I've already implemented such routines for the city and county of San Francisco, the state of California, and at the federal level as well. To address the issue of citizen apathy and ignorance, I've constructed a pipeline that classifies collected legislation as belonging to one of 16 policy areas.</p>
 <p>Once classified, a cosine similarity search procedure is performed to recommend legislation to users. This is made possible by updating users' policy area interest vectors which contain features matching the 16 policy areas. Every user action pertaining to a piece of legislation has a weighted effect when updating said vector. For example, a user clicking on a bill pertaining to education will boost the feature of the policy area interest vector for this user that captures their interest in education bills. Saving the bill for later or voting on it will have an even larger effect of the same kind. Contrarily, repeatedly delegating votes on foreign policy will deemphasize that feature. For all policy areas falling below some L2-norm threshold for a given user, the cosine similarity search procedure mentioned above identifies peers of that user who <i>are</i> interested in that policy area and recommends them as delegates for all bills belonging to that policy area.</p>
@@ -11791,7 +11791,7 @@ div#notebook {
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 class="font-weight-bold" id="What-this-post-covers">What this post covers</h5><p>We will be going over the tools and techniques used to collect federal legislation and detail the process of producing a text classifier using scikit-learn's support vector machine linear classifier. I've opted to only discuss the collection federal legislation as this will be pertinent to a larger audience. In addition, the source for federal legislation is, by far, the most complete and simple to use; contrary to this would be city of San Francisco's documentation of introduced legislation which is so inconvientely published as a PDF upload to their website...if you're interested in seeing how I used Slate, the pdf-to-text Python library, to create a bill collection utility for SF, please take a look at <a href="https://github.com/a-rich/Liquidemocracy/blob/master/project/server/bill_collection/scrapers/cities/san_francisco/scraper.py">this module</a>.</p>
+<h2 id="What-this-post-covers">What this post covers</h2><p>We will be going over the tools and techniques used to collect federal legislation and detail the process of producing a text classifier using scikit-learn's support vector machine linear classifier. I've opted to only discuss the collection federal legislation as this will be pertinent to a larger audience. In addition, the source for federal legislation is, by far, the most complete and simple to use; contrary to this would be city of San Francisco's documentation of introduced legislation which is so inconvientely published as a PDF upload to their website...if you're interested in seeing how I used Slate, the pdf-to-text Python library, to create a bill collection utility for SF, please take a look at <a href="https://github.com/a-rich/Liquidemocracy/blob/master/project/server/bill_collection/scrapers/cities/san_francisco/scraper.py">this module</a>.</p>
 </div>
 </div>
 </div>
@@ -11799,7 +11799,7 @@ div#notebook {
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 class="font-weight-bold" id="Congress.gov">Congress.gov</h5>
+<h2 id="Congress.gov">Congress.gov</h2>
 </div>
 </div>
 </div>
@@ -11809,7 +11809,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'congress.png'</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'congress.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">775</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -11839,7 +11839,7 @@ div#notebook {
 
 <div class="inner_cell">
 <div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">'congress_leg.png'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">'congress_leg.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">775</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -11868,7 +11868,7 @@ div#notebook {
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 class="font-weight-bold" id="Collecting-bills-for-each-policy-area-of-interest">Collecting bills for each policy area of interest</h5><p>Below is a simplified version of the script used in my project to collect training data for the classifier. Instead of collecting 3000 bills for 16 different policy areas, this collects only 25 bills across 8 policy areas.</p>
+<h2 id="Collecting-bills-for-each-policy-area-of-interest">Collecting bills for each policy area of interest</h2><p>Below is a simplified version of the script used in my project to collect training data for the classifier. Instead of collecting 3000 bills for 16 different policy areas, this collects only 25 bills across 8 policy areas.</p>
 </div>
 </div>
 </div>
@@ -11977,7 +11977,7 @@ Collection bills on Science, Technology, Communications
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 class="font-weight-bold" id="Processing-data">Processing data</h5><p>Now we create numerical class labels for each data instance and clean the text using regular expressions. Prior to cleaning the full-scale dataset, I had a vocabulary of nearly 100,000 words. Several thousand of these "words" were actually just useless numbers. Many contained or were entirely underscores, punctuation characters, or other non-words like "aaaaaaiii" -- just wierd stuff that must be rid of.</p>
+<h2 id="Processing-data">Processing data</h2><p>Now we create numerical class labels for each data instance and clean the text using regular expressions. Prior to cleaning the full-scale dataset, I had a vocabulary of nearly 100,000 words. Several thousand of these "words" were actually just useless numbers. Many contained or were entirely underscores, punctuation characters, or other non-words like "aaaaaaiii" -- just wierd stuff that must be rid of.</p>
 </div>
 </div>
 </div>
@@ -12018,7 +12018,7 @@ Collection bills on Science, Technology, Communications
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 class="font-weight-bold" id="More-preprocessing">More preprocessing</h5><p>At this time, you may want to apply stemming and lemmatization to reduce the vocabulary of your dataset. Stemming finds the root of a word, i.e. "training" stems to "train". Lemmatization normalizes morphological differences in words with the same meaning, i.e. "is" and "are" are lemmatized to "be".</p>
+<h2 id="More-preprocessing">More preprocessing</h2><p>At this time, you may want to apply stemming and lemmatization to reduce the vocabulary of your dataset. Stemming finds the root of a word, i.e. "training" stems to "train". Lemmatization normalizes morphological differences in words with the same meaning, i.e. "is" and "are" are lemmatized to "be".</p>
 <p>I found that, even for my full-scale training procedure with a regex cleaned vocabulary of approximately 60,000 words, stemming and lemmatization actually hurt by model's performance reducing it from 94% precision and recall to 93%. These processes <i>did</i>, however, successfully reduce the vocabulary to approximately 39,000 words.</p>
 <p>If you decide to use stemming or lemmatization, there are several options to choose from in the Python ecosystem. The Natural Language Toolkit (NLTK) is an easy to use and fully-featured favorite. SpaCy is a newer and faster natural langauge processing package you may want to consider for production systems.</p>
 </div>
@@ -12028,7 +12028,7 @@ Collection bills on Science, Technology, Communications
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 class="font-weight-bold" id="Vectorize-documents-to-create-a-document-term-matrix">Vectorize documents to create a document-term matrix</h5><p>In order to proceed with classification, we must convert our character-based representation of the documents into a numerical form. To do this, we'll use scikit-learn, an exteremely useful and popular machine learning library. Scikit-learn's feature_extraction.text package contains a number of vectorization classes that we can use to create document-term matrices.</p>
+<h2 id="Vectorize-documents-to-create-a-document-term-matrix">Vectorize documents to create a document-term matrix</h2><p>In order to proceed with classification, we must convert our character-based representation of the documents into a numerical form. To do this, we'll use scikit-learn, an exteremely useful and popular machine learning library. Scikit-learn's feature_extraction.text package contains a number of vectorization classes that we can use to create document-term matrices.</p>
 <p>If we have <code>N</code> documents in our dataset and, across all these document, we have a total vocabulary of <code>M</code> unique words, the document-term matrix will be a <code>NxM</code> matrix with each document occupying a row and each term in the vocabularly occupying a column.</p>
 <p>The simplest to explain vectorizer is <code>CountVectorizer</code> which will simply store a count for the number of times each word appears in each document. While simple, this may not be the best representation to use. To see why, think about the word "the"; it is the most common 3-gram sequence of characters in the English language. A given document will probably have the largest count for "the" relative to all other words in the vocabulary. The numerical representation of our document will have a really high weight for "the" and two documents that both have "the" appearing frequently in them will be gauged as quite similar -- but this isn't necessarily true because pretty much every document we'll ever collect will have "the" appearing in it many times. For this reason, we might prefer using the <code>TfidfVectorizer</code> or term frequency-inverse document frequency representation. The intuition behind tf-idf is that we want to reduce the weight of terms that appear in many of the documents even if they appear many times in a given document. To do this, we compute $\text{tf(term, document)} \times \text{idf(term, documents)}$ where $\text{tf(term, document)}$ is the number of times the given term appears in the given document and $\text{idf(term, documents)} = log\frac{\text{number of documents}}{\text{number of documents containing the given term}}$.</p>
 <p>As you might imagine, most of the words in the vocabularly do <b>not</b> appear in a given document, so there will be many zero value counts in a document's term vector. For this reason, we call the resulting document-term matrix a <i>sparse</i> matrix. Representing sparse matrices using scikit-learn requires the package scipy which may or may not already be installed as a prerequisite of scikit-learn. Sparse matrices are frequently stored in compressed sparse row (CSR) format: instead of storing an explicit value for <i>every</i> index in the vocabulary, we store <code>(index, value)</code> pairs for only the non-zero values in the matrix. So long as there are more zero values than non-zero values in the document-term matrix, CSR format saves us space and time.</p>
@@ -12073,7 +12073,7 @@ Collection bills on Science, Technology, Communications
 </div>
 <div class="inner_cell bg-info card px-2 pt-2 my-3">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 class="font-weight-bold" id="Training-and-evaluation-our-bill-classifier">Training and evaluation our bill classifier</h5><p>Now we'll use some of scikit-learns utilities to train and evaluate a support vector machine linear classifier. A support vector machine applies a kernel function to the input data in order to project it into a higher dimension space. The reason why this is desirable is because our data is non-linear and our SVM produces a linear decision boundary between classes; the projection of our input data into a higher dimensional space, when done in a particular way, permits the distinct classes to become linearly sparable. How can we produce a linear decision boundary between 8 classes? In short, our model uses a one-versus-all technique, e.g. is the bill education related or not?</p>
+<h2 id="Training-and-evaluation-our-bill-classifier">Training and evaluation our bill classifier</h2><p>Now we'll use some of scikit-learns utilities to train and evaluate a support vector machine linear classifier. A support vector machine applies a kernel function to the input data in order to project it into a higher dimension space. The reason why this is desirable is because our data is non-linear and our SVM produces a linear decision boundary between classes; the projection of our input data into a higher dimensional space, when done in a particular way, permits the distinct classes to become linearly sparable. How can we produce a linear decision boundary between 8 classes? In short, our model uses a one-versus-all technique, e.g. is the bill education related or not?</p>
 </div>
 </div>
 </div>
@@ -12083,7 +12083,7 @@ Collection bills on Science, Technology, Communications
 <div class="inner_cell">
 <div class="input_area card px-2 pt-2 my-3" style="background-color:#F7F7F9;">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Photo taken from https://stackoverflow.com/questions/9480605/what-is-the-relation-between-the-number-of-support-vectors-and-training-data-and</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'svm.png'</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'svm.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">775</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
